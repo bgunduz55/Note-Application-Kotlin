@@ -8,7 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.popularmovies.MovieDetailActivity
+import com.example.popularmovies.MoviesActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 
@@ -32,20 +35,26 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         //on below line we are setting adapter to our recycler view.
         notesRV.adapter = noteRVAdapter
         //on below line we are initializing our view modal.
-        viewModal = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NoteViewModal::class.java)
+        /*viewModal = ViewModelProvider(
+            this, ViewModelProvider.AndroidViewModelFactory.getInstance(
+                application
+            )
+        ).get(
+            NoteViewModal::class.java
+        )
         //on below line we are calling all notes methof from our view modal class to observer the changes on list.
         viewModal.allNotes.observe(this, Observer { list ->
             list?.let {
                 //on below line we are updating our list.
                 noteRVAdapter.updateList(it)
             }
-        })
+        })*/
         addFAB.setOnClickListener {
             //adding a click listner for fab button and opening a new intent to add a new note.
-            val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
+            /*val intent = Intent(this@MainActivity, AddEditNoteActivity::class.java)
+            startActivity(intent)
+            this.finish()*/
+            val intent = Intent(this@MainActivity, MoviesActivity::class.java)
             startActivity(intent)
             this.finish()
         }

@@ -1,6 +1,5 @@
 package com.gtappdevelopers.noteapplication
 
-import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import java.util.concurrent.Flow
 
